@@ -1,4 +1,4 @@
-import words from './words.js';
+import {allowedWords, answerWords} from './words.js';
 
 
 document.addEventListener("DOMContentLoaded", function() {
