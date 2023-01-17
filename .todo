@@ -1,0 +1,23 @@
+[ ] allow letters to be entered without focusing on game board
+[ ] add footer
+[ ] add information window to info button (modal dialog)
+[ ] implement the actual game
+
+[ ] add statistics/correct answer count
+[ ] add animations to letters when enter is pressed
+[ ] add daily puzzle option (just add a general random seed input and have a button to fill that in with today's date?)
+
+[ ] add settings
+    [ ] add colorblind color scheme
+    [ ] add hard mode
+
+if i have time:
+[ ] explore other ways to make the header grid responsive other than media queries
+[ ] look into aria stuff for buttons maybe
+
+
+
+for readme:
+
+was going to use just `<li>` for the info button, but used `<button>` for accessibility reasons (the ability to tab to the button)
+
