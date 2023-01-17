@@ -1,6 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Source+Sans+Pro&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     border: 0;
     box-sizing: border-box;
+}
+
+body {
+    background-color: #222;
+    color: white;
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+
+/* header */
+
+header {
+    border-bottom: 1px solid #aaa;
+    height: 70px;
+}
+
+h1 {
+    font-family: Poppins, sans-serif;
+    text-transform: uppercase;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 0 1rem;
+}
+
+#site-logo {
+    font-size: 2.25rem;
+    grid-column-start: 2;
+    margin: auto 0.5rem;
+}
+
+#menu {
+    margin-left: auto;
+}
+
+#menu button {
+    height: 100%;
+    width: 4rem;
+    background-color: transparent;
+    color: white;
+}
+
+#menu button:hover {
+    background-color: #ccc;
+    color: black;
+}
+
+#menu button:active {
+    background-color: #aaa;
+}
+
+#menu i {
+    font-size: 1.5rem;
 }
