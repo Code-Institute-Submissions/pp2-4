@@ -40,6 +40,7 @@ h1 {
 }
 
 #menu {
+    grid-column-start: 3;
     margin-left: auto;
 }
 
@@ -66,12 +67,12 @@ h1 {
 
 /* game area */
 
-table {
+#game-board {
     margin: 50px auto;
     border-spacing: 5px;
 }
 
-td {
+#game-board td {
     width: 4rem;
     height: 4rem;
     border: 2px solid #666;
