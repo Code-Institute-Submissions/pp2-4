@@ -10,6 +10,7 @@
 [ ] add settings
     [ ] add colorblind color scheme
     [ ] add hard mode
+    [ ] add light mode/dark mode toggle
 
 if i have time:
 [ ] explore other ways to make the header grid responsive other than media queries
