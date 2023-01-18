@@ -120,25 +120,38 @@ function makeGuess() {
         return;
     }
 
-    for (let i = 0; i < curRow.childElementCount; i++) {
+    let answerCopy = answer.slice();
+    for (let i = 0; i < guess.length; i++) {
         let cell = curRow.children[i];
-        let cellLetter = cell.dataset.key;
+        let letter = guess[i];
         // https://stackoverflow.com/a/62872204/12317855
-        let keyboardKey = keyboard.querySelector(`[data-key="${cellLetter}"]`);
+        let keyboardKey = keyboard.querySelector(`[data-key="${letter}"]`);
+        
+        let answerIndex = answerCopy.indexOf(letter)
 
-        if (cellLetter === answer[i]) {
+        // guessed letter wasn't found in answer
+        if (answerIndex === -1) {
+            cell.classList.add("incorrect-letter");
+            keyboardKey.classList.add("incorrect-letter");
+            continue;
+        }
+        // guessed letter is in the correct position
+        else if (letter === answer[i]) {
             correctLetters++;
             cell.classList.add("correct-letter");
             keyboardKey.classList.add("correct-letter");
         }
-        else if (answer.includes(cellLetter)) {
+        // guessed letter is present in the answer, but in the wrong position
+        else {
             cell.classList.add("present-letter");
             keyboardKey.classList.add("present-letter");
         }
-        else {
-            cell.classList.add("incorrect-letter");
-            keyboardKey.classList.add("incorrect-letter");
-        }
+
+        // if execution gets here, the letter is in the answer in some position, so it
+        // must be removed from the answer so as not to be marked correct more than once.
+        let tmpArray = answerCopy.split('');
+        tmpArray.splice(answerIndex, 1);
+        answerCopy = tmpArray.join('');
     }
 
     guesses++;
