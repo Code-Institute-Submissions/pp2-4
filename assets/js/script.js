@@ -13,8 +13,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
     board = document.getElementById("game-board");
 
-    // add event listeners
-    document.addEventListener("keydown", handleKeyInput)
+    document.addEventListener("keydown", function(event) {
+        handleKeyInput(event.key);
+    });
+
+    // add event listeners to onscreen keyboard keys
+    let keys = document.getElementsByClassName("keyboard-key");
+    for (let key of keys) {
+        key.addEventListener("click", function() {
+            handleKeyInput(this.innerHTML);
+        })
+    }
 
 });
 
@@ -50,7 +59,7 @@ function initializeKeyboard() {
             htmlBuffer.push("<button class='keyboard-key' id='key-enter'>Enter</button>")
         } 
         for (let letter of letterRow) {
-            htmlBuffer.push(`<button class='keyboard-key' id='key-${letter}'>${letter}</button>`);
+            htmlBuffer.push(`<button class='keyboard-key letter-key'>${letter}</button>`);
         }
         if (index === 2) {
             htmlBuffer.push("<button class='keyboard-key' id='key-backspace'><i class='fa-solid fa-delete-left'></i></button>");
@@ -62,32 +71,26 @@ function initializeKeyboard() {
 }
 
 
-function handleKeyInput(event) {
+function handleKeyInput(key) {
     if (isGameOver) return;
 
-    // a guess is only allowed if a 5 letter word is entered
-    if (event.key === "Enter" && currentRowLetters == 5) {
-        makeGuess();
-        return;
-    }
+    console.log("key input:", key);
 
-    if (event.key === "Backspace" && currentRowLetters > 0) {
+    // a guess is only allowed if a 5 letter word is entered
+    if (key === "Enter" && currentRowLetters == 5) {
+        makeGuess();
+    }
+    else if (key === "Backspace" && currentRowLetters > 0) {
         let prevCell = getCell(guesses, currentRowLetters - 1);
         prevCell.innerHTML = "";
         currentRowLetters--;
-        return;
     }
-
-    // only allow letter keys
-    const key = event.key.toLowerCase();
-    if (!/^[a-z]$/.test(key)) return;
-
-    // if the current row is full the letter input shouldn't go through
-    if (currentRowLetters >= 5) return;
-
-    let cell = getCell(guesses, currentRowLetters);
-    cell.innerHTML = key;
-    currentRowLetters++;
+    // only allow letter keys, and only when the current row isn't full
+    else if (/^[a-z]$/i.test(key) && currentRowLetters < 5) {
+        let cell = getCell(guesses, currentRowLetters);
+        cell.innerHTML = key.toLowerCase();
+        currentRowLetters++;
+    }
 }
 
 
