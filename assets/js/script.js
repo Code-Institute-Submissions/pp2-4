@@ -50,7 +50,7 @@ function initializeKeyboard() {
             htmlBuffer.push("<button class='keyboard-key' id='key-enter'>Enter</button>")
         } 
         for (let letter of letterRow) {
-            htmlBuffer.push(`<button class='keyboard-key'>${letter}</button>`);
+            htmlBuffer.push(`<button class='keyboard-key' id='key-${letter}'>${letter}</button>`);
         }
         if (index === 2) {
             htmlBuffer.push("<button class='keyboard-key' id='key-backspace'><i class='fa-solid fa-delete-left'></i></button>");
