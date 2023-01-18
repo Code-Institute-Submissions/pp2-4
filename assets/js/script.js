@@ -5,7 +5,7 @@ let guesses = 0;
 let currentRowLetters = 0;
 let isGameOver = false;
 let keyboard;
-let answer = "chard";
+let answer = generateAnswer();
 
 document.addEventListener("DOMContentLoaded", function() {
     initializeTable();
@@ -129,5 +129,11 @@ function makeGuess() {
     guesses++;
     currentRowLetters = 0;
     if (guesses === 6 || correctLetters === 5) isGameOver = true;
+}
+
+
+function generateAnswer() {
+    let answerIndex = Math.floor(Math.random() * answerWords.length);
+    return answerWords[answerIndex];
 }
 
