@@ -15,6 +15,7 @@
 [ ] add statistics/correct answer count
 [ ] add animations to letters when enter is pressed
 [ ] add daily puzzle option (just add a general random seed input and have a button to fill that in with today's date?)
+[ ] make favicon
 
 [ ] add settings
     [ ] add colorblind color scheme
