@@ -5,6 +5,7 @@ let guesses = 0;
 let currentRowLetters = 0;
 let isGameOver = false;
 let board;
+let keyboard;
 let answer = "chard";
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     initializeKeyboard();
 
     board = document.getElementById("game-board");
+    keyboard = document.getElementById("keyboard");
 
     document.addEventListener("keydown", function(event) {
         handleKeyInput(event.key);
@@ -108,15 +110,21 @@ function makeGuess() {
     for (let i = 0; i < curRow.childElementCount; i++) {
         let cell = curRow.children[i];
         let cellLetter = cell.dataset.key;
+        // https://stackoverflow.com/a/62872204/12317855
+        let keyboardKey = keyboard.querySelector(`[data-key="${cellLetter}"]`);
+
         if (cellLetter === answer[i]) {
             correctLetters++;
             cell.classList.add("correct-letter");
+            keyboardKey.classList.add("correct-letter");
         }
         else if (answer.includes(cellLetter)) {
             cell.classList.add("present-letter");
+            keyboardKey.classList.add("present-letter");
         }
         else {
             cell.classList.add("incorrect-letter");
+            keyboardKey.classList.add("incorrect-letter");
         }
     }
 
