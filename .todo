@@ -39,4 +39,5 @@ https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
 
 my first implementation of the algorithm to determine the color of each letter was incorrect;
 if the answer was "TREAD" and i guessed "TREAT", the second "T" would turn yellow when it should be gray.
-to fix this
+i sketched on some paper to figure out a way to solve this problem, and with the help of
+a stackoverflow post (https://stackoverflow.com/a/20817684/12317855), i was able to fix it.
