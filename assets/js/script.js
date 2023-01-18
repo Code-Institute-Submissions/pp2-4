@@ -9,6 +9,7 @@ let board;
 
 document.addEventListener("DOMContentLoaded", function() {
     initializeTable();
+    initializeKeyboard();
 
     board = document.getElementById("game-board");
 
@@ -19,11 +20,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 function initializeTable() {
-    let main = document.getElementsByTagName("main")[0];
+    let board = document.getElementById("game-board");
 
     // https://stackoverflow.com/a/27646877/12317855
     let htmlBuffer = [];
-    htmlBuffer.push("<table id='game-board'>");
     htmlBuffer.push("<tbody>");
     for (let i = 0; i < 6; i++) {
         htmlBuffer.push("<tr>");
@@ -33,10 +33,32 @@ function initializeTable() {
         htmlBuffer.push("</tr>");
     }
     htmlBuffer.push("</tbody>");
-    htmlBuffer.push("</table>");
-    console.log(htmlBuffer);
 
-    main.innerHTML = htmlBuffer.join("\n");
+    board.innerHTML = htmlBuffer.join("\n");
+}
+
+function initializeKeyboard() {
+    let keyboard = document.getElementById("keyboard");
+    const letterRows = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
+
+    // https://stackoverflow.com/a/34337004/12317855
+    for (let [index, letterRow] of letterRows.entries()) {
+        let htmlBuffer = [];
+        htmlBuffer.push("<div class='keyboard-row'>");
+        
+        if (index === 2) {
+            htmlBuffer.push("<button class='keyboard-key' id='key-enter'>Enter</button>")
+        } 
+        for (let letter of letterRow) {
+            htmlBuffer.push(`<button class='keyboard-key'>${letter}</button>`);
+        }
+        if (index === 2) {
+            htmlBuffer.push("<button class='keyboard-key' id='key-backspace'><i class='fa-solid fa-delete-left'></i></button>");
+        }
+        htmlBuffer.push("</div>");
+        
+        keyboard.innerHTML += htmlBuffer.join("\n");
+    }
 }
 
 
