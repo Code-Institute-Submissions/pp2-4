@@ -97,7 +97,7 @@ main {
     border-spacing: 5px;
 }
 
-#game-board td {
+.board-letter {
     width: 4rem;
     height: 4rem;
     border: 2px solid #666;
@@ -129,10 +129,27 @@ main {
     width: 3rem;
     height: 3rem;
     border-radius: 5px;
+    background-color: #777;
+    color: white;
 }
 
 #key-enter, #key-backspace {
     width: 4rem;
+}
+
+.incorrect-letter {
+    background-color: #444;
+    border: none;
+}
+
+.present-letter {
+    background-color: rgb(198, 198, 17);
+    border: none;
+}
+
+.correct-letter {
+    background: rgb(83, 149, 78);
+    border: none;
 }
 
 

@@ -5,7 +5,7 @@ let guesses = 0;
 let currentRowLetters = 0;
 let isGameOver = false;
 let board;
-
+let answer = "chard";
 
 document.addEventListener("DOMContentLoaded", function() {
     initializeTable();
@@ -35,9 +35,9 @@ function initializeTable() {
     let htmlBuffer = [];
     htmlBuffer.push("<tbody>");
     for (let i = 0; i < 6; i++) {
-        htmlBuffer.push("<tr>");
+        htmlBuffer.push("<tr class='board-row'>");
         for (let j = 0; j < 5; j++) {
-            htmlBuffer.push("<td></td>");
+            htmlBuffer.push("<td class='board-letter'></td>");
         }
         htmlBuffer.push("</tr>");
     }
@@ -74,8 +74,6 @@ function initializeKeyboard() {
 function handleKeyInput(key) {
     if (isGameOver) return;
 
-    console.log("key input:", key);
-
     // a guess is only allowed if a 5 letter word is entered
     if (key === "Enter" && currentRowLetters == 5) {
         makeGuess();
@@ -88,6 +86,7 @@ function handleKeyInput(key) {
     // only allow letter keys, and only when the current row isn't full
     else if (/^[a-z]$/i.test(key) && currentRowLetters < 5) {
         let cell = getCell(guesses, currentRowLetters);
+        cell.dataset.key = key.toLowerCase();
         cell.innerHTML = key.toLowerCase();
         currentRowLetters++;
     }
@@ -95,8 +94,7 @@ function handleKeyInput(key) {
 
 
 function getCell(row, column) {
-    let tBody = board.children[0];
-    let curRow = tBody.children[row];
+    let curRow = document.getElementsByClassName("board-row")[row];
     let curCell = curRow.children[column];
 
     return curCell;
@@ -104,9 +102,26 @@ function getCell(row, column) {
 
 
 function makeGuess() {
+    let curRow = document.getElementsByClassName("board-row")[guesses];
+    let correctLetters = 0;
+    
+    for (let i = 0; i < curRow.childElementCount; i++) {
+        let cell = curRow.children[i];
+        let cellLetter = cell.dataset.key;
+        if (cellLetter === answer[i]) {
+            correctLetters++;
+            cell.classList.add("correct-letter");
+        }
+        else if (answer.includes(cellLetter)) {
+            cell.classList.add("present-letter");
+        }
+        else {
+            cell.classList.add("incorrect-letter");
+        }
+    }
+
     guesses++;
     currentRowLetters = 0;
-
-    if (guesses === 6) isGameOver = true;
+    if (guesses === 6 || correctLetters === 5) isGameOver = true;
 }
 
