@@ -1,5 +1,5 @@
 [ ] allow letters to be entered without focusing on game board
-[ ] add footer
+[x] add footer
 [ ] add information window to info button (modal dialog)
 [ ] implement the actual game
 
