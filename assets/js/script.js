@@ -22,9 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let key of keys) {
         key.addEventListener("click", function() {
             handleKeyInput(this.dataset.key);
-        })
+        });
     }
-
 });
 
 
@@ -47,27 +46,40 @@ function initializeTable() {
 }
 
 function initializeKeyboard() {
-    let keyboard = document.getElementById("keyboard");
+    const keyboard = document.getElementById("keyboard");
     const letterRows = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
 
-    // https://stackoverflow.com/a/34337004/12317855
-    for (let [index, letterRow] of letterRows.entries()) {
-        let htmlBuffer = [];
-        htmlBuffer.push("<div class='keyboard-row'>");
+    for (let letterRow of letterRows) {
+        const rowDiv = document.createElement("div");
+        rowDiv.setAttribute("class", "keyboard-row");
         
-        if (index === 2) {
-            htmlBuffer.push("<button class='keyboard-key' id='key-enter' data-key='Enter'>Enter</button>")
-        } 
         for (let letter of letterRow) {
-            htmlBuffer.push(`<button class='keyboard-key letter-key' data-key='${letter}'>${letter}</button>`);
+            const key = document.createElement("button");
+            key.setAttribute("class", "keyboard-key");
+            key.setAttribute("data-key", `${letter}`);
+            key.textContent = letter;
+            
+            rowDiv.appendChild(key);
         }
-        if (index === 2) {
-            htmlBuffer.push("<button class='keyboard-key' id='key-backspace' data-key='Backspace'><i class='fa-solid fa-delete-left'></i></button>");
-        }
-        htmlBuffer.push("</div>");
         
-        keyboard.innerHTML += htmlBuffer.join("\n");
+        keyboard.appendChild(rowDiv);
     }
+
+    const enterKey = document.createElement("button");
+    enterKey.setAttribute("class", "keyboard-key");
+    enterKey.setAttribute("id", "key-enter");
+    enterKey.setAttribute("data-key", "Enter");
+    enterKey.textContent = "Enter";
+
+    const backspaceKey = document.createElement("button");
+    backspaceKey.setAttribute("class", "keyboard-key");
+    backspaceKey.setAttribute("id", "key-backspace");
+    backspaceKey.setAttribute("data-key", "Backspace");
+    backspaceKey.innerHTML = "<i class='fa-solid fa-delete-left'></i>";
+
+    const lastRow = keyboard.children[2];
+    lastRow.insertBefore(enterKey, lastRow.firstChild);
+    lastRow.appendChild(backspaceKey);
 }
 
 

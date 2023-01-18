@@ -25,7 +25,7 @@
 if i have time:
 [ ] explore other ways to make the header grid responsive other than media queries
 [ ] look into aria stuff for buttons maybe
-[ ] refactor onscreen keyboard initialization?
+[x] refactor onscreen keyboard initialization?
 
 
 for readme:
