@@ -1,3 +1,5 @@
+/* jshint esversion: 6 */
+
 import {allowedWords, answerWords} from './words.js';
 
 
