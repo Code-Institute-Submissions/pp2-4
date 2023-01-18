@@ -25,5 +25,7 @@ for readme:
 
 was going to use just `<li>` for the info button, but used `<button>` for accessibility reasons (the ability to tab to the button)
 
-i was going to give each letter key a unique id of `key-{letter}`, but i found this article that seemed to fit my use case better:
+for the onscreen keyboard, i was using each key's `innerHTML` to determine what to do to the game board,
+but for backspace innerHTML is a fontawesome icon, so it doesn't work properly.
+then i found this article that seemed to fit my use case better:
 https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes

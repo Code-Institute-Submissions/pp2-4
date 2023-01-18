@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let keys = document.getElementsByClassName("keyboard-key");
     for (let key of keys) {
         key.addEventListener("click", function() {
-            handleKeyInput(this.innerHTML);
+            handleKeyInput(this.dataset.key);
         })
     }
 
@@ -56,13 +56,13 @@ function initializeKeyboard() {
         htmlBuffer.push("<div class='keyboard-row'>");
         
         if (index === 2) {
-            htmlBuffer.push("<button class='keyboard-key' id='key-enter'>Enter</button>")
+            htmlBuffer.push("<button class='keyboard-key' id='key-enter' data-key='Enter'>Enter</button>")
         } 
         for (let letter of letterRow) {
-            htmlBuffer.push(`<button class='keyboard-key letter-key'>${letter}</button>`);
+            htmlBuffer.push(`<button class='keyboard-key letter-key' data-key='${letter}'>${letter}</button>`);
         }
         if (index === 2) {
-            htmlBuffer.push("<button class='keyboard-key' id='key-backspace'><i class='fa-solid fa-delete-left'></i></button>");
+            htmlBuffer.push("<button class='keyboard-key' id='key-backspace' data-key='Backspace'><i class='fa-solid fa-delete-left'></i></button>");
         }
         htmlBuffer.push("</div>");
         
