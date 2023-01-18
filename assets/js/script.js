@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
     keyboard = document.getElementById("keyboard");
 
     document.addEventListener("keydown", function(event) {
-        handleKeyInput(event.key);
+        if (!event.repeat) handleKeyInput(event.key);
     });
 
     // add event listeners to onscreen keyboard keys
