@@ -1,8 +1,12 @@
-[ ] allow letters to be entered without focusing on game board
+[x] allow letters to be entered without focusing on game board
 [x] add footer
 [ ] add information window to info button (modal dialog)
-[ ] implement the actual game
-[ ] add keyboard with colours
+[-] implement the actual game
+    [x] make game board letters change color
+    [x] add keyboard with colors
+    [ ] generate random answer
+    [ ] add game over visuals
+
 [ ] don't input letter if ctrl is held
 [ ] make game board and keyboard size responsive with viewport height
 
@@ -18,7 +22,7 @@
 if i have time:
 [ ] explore other ways to make the header grid responsive other than media queries
 [ ] look into aria stuff for buttons maybe
-
+[ ] refactor onscreen keyboard initialization?
 
 
 for readme:
