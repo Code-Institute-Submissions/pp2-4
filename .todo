@@ -4,7 +4,9 @@
 [-] implement the actual game
     [x] make game board letters change color
     [x] add keyboard with colors
-    [ ] generate random answer
+    [x] generate random answer
+    [x] disallow non-word guesses
+    [ ] add popup notifications
     [ ] add game over visuals
 
 [ ] don't input letter if ctrl is held
@@ -33,3 +35,7 @@ for the onscreen keyboard, i was using each key's `innerHTML` to determine what 
 but for backspace innerHTML is a fontawesome icon, so it doesn't work properly.
 then i found this article that seemed to fit my use case better:
 https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
+
+my first implementation of the algorithm to determine the color of each letter was incorrect;
+if the answer was "TREAD" and i guessed "TREAT", the second "T" would turn yellow when it should be gray.
+to fix this

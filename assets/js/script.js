@@ -101,10 +101,25 @@ function getCell(row, column) {
 }
 
 
+function showNotification(text) {
+    console.log(text);
+}
+
+
 function makeGuess() {
     let curRow = document.getElementsByClassName("board-row")[guesses];
     let correctLetters = 0;
-    
+
+    let guess = "";
+    for (let cell of curRow.children) {
+        guess += cell.dataset.key;
+    }
+
+    if (!allowedWords.includes(guess) && !answerWords.includes(guess)) {
+        showNotification("Not a valid word");
+        return;
+    }
+
     for (let i = 0; i < curRow.childElementCount; i++) {
         let cell = curRow.children[i];
         let cellLetter = cell.dataset.key;
