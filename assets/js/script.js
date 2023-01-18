@@ -141,7 +141,7 @@ function makeGuess() {
         // https://stackoverflow.com/a/62872204/12317855
         let keyboardKey = keyboard.querySelector(`[data-key="${letter}"]`);
         
-        let answerIndex = answerCopy.indexOf(letter)
+        let answerIndex = answerCopy.indexOf(letter);
 
         // guessed letter wasn't found in answer
         if (answerIndex === -1) {
