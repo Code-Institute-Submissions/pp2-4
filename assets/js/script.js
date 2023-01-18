@@ -4,7 +4,6 @@ import {allowedWords, answerWords} from './words.js';
 let guesses = 0;
 let currentRowLetters = 0;
 let isGameOver = false;
-let board;
 let keyboard;
 let answer = "chard";
 
@@ -12,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function() {
     initializeTable();
     initializeKeyboard();
 
-    board = document.getElementById("game-board");
     keyboard = document.getElementById("keyboard");
 
     document.addEventListener("keydown", function(event) {
