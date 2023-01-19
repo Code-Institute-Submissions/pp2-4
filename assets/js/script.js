@@ -146,7 +146,7 @@ function showNotification(text) {
 
     notifications.insertBefore(notificationDiv, notifications.firstChild);
 
-    setTimeout(() => notifications.removeChild(notificationDiv), 2000);
+    setTimeout(() => notifications.removeChild(notificationDiv), 3000);
 }
 
 
@@ -212,7 +212,22 @@ function makeGuess() {
 
     guesses++;
     currentRowLetters = 0;
-    if (guesses === 6 || correctLetters === 5) isGameOver = true;
+
+    let gotAnswer = correctLetters === 5;
+    if (guesses === 6 || gotAnswer) gameOver(gotAnswer);
+}
+
+
+function gameOver(gotAnswer) {
+    isGameOver = true;
+
+    let message;
+    if (gotAnswer)
+        message = ["Well done!", "Congratulations!"][Math.floor(Math.random() * 2)];
+    else
+        message = "Game over!";
+    
+    showNotification(message);
 }
 
 

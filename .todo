@@ -7,7 +7,7 @@
     [x] generate random answer
     [x] disallow non-word guesses
     [x] add popup notifications
-    [ ] add game over visuals
+    [x] add game over visuals
 
 [ ] don't input letter if ctrl is held
 [x] make game board and keyboard size responsive with viewport height
@@ -16,7 +16,7 @@
 [ ] add animations to letters when enter is pressed
 [ ] add daily puzzle option (just add a general random seed input and have a button to fill that in with today's date?)
 [x] make favicon
-[ ] fix footer responsiveness
+[x] fix footer responsiveness
 
 [ ] add settings
     [ ] add colorblind color scheme
