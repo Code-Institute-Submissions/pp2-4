@@ -152,8 +152,10 @@ function showNotification(text) {
     notificationDiv.textContent = text;
 
     notifications.insertBefore(notificationDiv, notifications.firstChild);
-
-    setTimeout(() => notifications.removeChild(notificationDiv), 3000);
+    
+    
+    setTimeout(() => notificationDiv.classList.add("hidden"), 3000);
+    notificationDiv.addEventListener("transitionend", () => notifications.removeChild(notificationDiv));
 }
 
 
