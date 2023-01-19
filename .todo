@@ -47,3 +47,6 @@ i found that changing from this to instead using `display: flex` improved respon
 
 i ran into problems when i wanted the game to take up the rest of the screen space after the header. i searched
 for help and i found this (https://stackoverflow.com/a/24979148/12317855)
+
+i only started using conventional commit messages midway through the project. i tried to rename an older
+commit to follow this style, but it changed the timestamp of all commits up to that point.
