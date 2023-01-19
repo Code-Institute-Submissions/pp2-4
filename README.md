@@ -65,7 +65,8 @@ However, this didn't work for the backspace key, as it contains a FontAwesome ic
 Lately, while watching videos about web design, I learned about [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes), and these fit my use case quite a bit better.
 
 My first implementation of the algorithm to determine the color of each letter was incorrect.
-If the answer was "TREAD" and the user were to guess "TREAT", the second "T" would turn yellow, when it should actually be gray.
+If the answer was "WATER" and the user were to guess "TREAT", the second "T" would turn yellow, when it should actually be gray.
+Otherwise, the user would (usually correctly) deduce that there must be two instances of the letter "T" in the answer. 
 I sketched on some paper to figure out a way to solve this problem, and then with the help of a [StackOverflow post](https://stackoverflow.com/a/20817684/12317855), I was able to fix it.
 
 ![Algorithm bug](media/letter_color_bug.png)
