@@ -48,7 +48,8 @@ function initializeTable() {
     for (let i = 0; i < 6; i++) {
         const rowDiv = document.createElement("div");
         rowDiv.setAttribute("class", "board-row");
-        rowDiv.setAttribute("aria-label", `Row ${i+1}`);
+        rowDiv.setAttribute("role", "row");
+        rowDiv.setAttribute("aria-rowindex", `${i+1}`);
 
         for (let j = 0; j < 5; j++) {
             const cellDiv = document.createElement("div");
