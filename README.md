@@ -82,3 +82,8 @@ I only started using [Conventional Commit Messages](https://gist.github.com/qoom
     - In the Pages section, select the `main` branch and click "Save"
     - Once this branch has been selected, the site will be deployed within a few minutes.
 
+## Credits
+
+- A fair amount of design inspiration was taken from [the original Wordle](https://www.nytimes.com/games/wordle/index.html). I did however try my best to design it without looking at any of Wordle's code, instead solving the problems my own way
+- Various [StackOverflow](https://stackoverflow.com/) posts helped me when debugging
+- The backspace icon and the icons in the navigation menu were taken from [Font Awesome](https://fontawesome.com/)
