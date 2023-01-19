@@ -285,3 +285,9 @@ main {
         grid-column-start: 2;
     }
 }
+
+@media screen and (max-width: 720px) {
+    footer {
+        display: none;
+    }
+}
