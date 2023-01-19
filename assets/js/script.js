@@ -7,6 +7,7 @@ let guesses = 0;
 let currentRowLetters = 0;
 let isGameOver = false;
 let keyboard;
+let notifications;
 let answer = generateAnswer();
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
     initializeKeyboard();
 
     keyboard = document.getElementById("keyboard");
+    notifications = document.getElementById("notification-container");
 
     document.addEventListener("keydown", function(event) {
         if (!event.repeat) handleKeyInput(event.key);
@@ -116,7 +118,13 @@ function getCell(row, column) {
 
 
 function showNotification(text) {
-    console.log(text);
+    const notificationDiv = document.createElement("p");
+    notificationDiv.setAttribute("class", "notification");
+    notificationDiv.textContent = text;
+
+    notifications.insertBefore(notificationDiv, notifications.firstChild);
+
+    setTimeout(() => notifications.removeChild(notificationDiv), 2000);
 }
 
 

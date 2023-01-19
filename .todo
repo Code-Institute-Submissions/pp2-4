@@ -6,7 +6,7 @@
     [x] add keyboard with colors
     [x] generate random answer
     [x] disallow non-word guesses
-    [ ] add popup notifications
+    [x] add popup notifications
     [ ] add game over visuals
 
 [ ] don't input letter if ctrl is held
