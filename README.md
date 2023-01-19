@@ -45,3 +45,19 @@ The site is targeted towards those who are interested in puzzle games, and who w
 - Add more animations to the page, like when revealing the color of the letters, or when opening modal windows
 - Settings window, containing options to turn on playing multiple times, adding a hard mode, or a colorblind color scheme
 
+## Testing/Development
+
+At first when making the navigation menu I made the info button as an `<li>` element, but I found that making it a `<button>` element instead would improve accessibility, by allowing the user to select it using the tab key.
+
+When making the onscreen keyboard, I was originally using each key's `innerHTML` property to determine what to do if that key was pressed. However, this didn't work for the backspace key, as it contains a FontAwesome icon rather than any text. Lately, while watching videos about web design, I learned about [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes), and these fit my use case quite a bit better.
+
+My first implementation of the algorithm to determine the color of each letter was incorrect. If the answer was "TREAD" and the user were to guess "TREAT", the second "T" would turn yellow, when it should actually be gray. I sketched on some paper to figure out a way to solve this problem, and then with the help of a [StackOverflow post](https://stackoverflow.com/a/20817684/12317855), I was able to fix it.
+
+![Algorithm bug](media/letter_color_bug.png)
+
+I originally made the game board using a `<table>` element, but it behaved oddly when resizing the window. I found that changing from this to instead using a flexbox container improved responsiveness. I continued to use flexbox, as well as grid where necessary, throughout the project to improve the responsiveness as much as I could.
+
+I ran into problems when I wanted the game to take up the rest of the screen space below the header. I tried experimenting with different flexbox style rules, but after trying for a while I found [this post](https://stackoverflow.com/a/24979148/12317855) which solved my problem.
+
+I only started using [Conventional Commit Messages](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13) midway through the project. I tried to rename an older commit to follow this style, but it changed the timestamp of all commits up to that point, so I left the older commits alone.
+
