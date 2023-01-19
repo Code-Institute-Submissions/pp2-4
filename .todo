@@ -41,3 +41,9 @@ my first implementation of the algorithm to determine the color of each letter w
 if the answer was "TREAD" and i guessed "TREAT", the second "T" would turn yellow when it should be gray.
 i sketched on some paper to figure out a way to solve this problem, and with the help of
 a stackoverflow post (https://stackoverflow.com/a/20817684/12317855), i was able to fix it.
+
+i originally made the game board using a html `<table>` element, but it behaved oddly when resizing the window.
+i found that changing from this to instead using `display: flex` improved responsiveness.
+
+i ran into problems when i wanted the game to take up the rest of the screen space after the header. i searched
+for help and i found this (https://stackoverflow.com/a/24979148/12317855)

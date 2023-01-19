@@ -30,21 +30,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 function initializeTable() {
-    let board = document.getElementById("game-board");
+    const board = document.getElementById("game-board");
 
-    // https://stackoverflow.com/a/27646877/12317855
-    let htmlBuffer = [];
-    htmlBuffer.push("<tbody>");
     for (let i = 0; i < 6; i++) {
-        htmlBuffer.push("<tr class='board-row'>");
-        for (let j = 0; j < 5; j++) {
-            htmlBuffer.push("<td class='board-letter'></td>");
-        }
-        htmlBuffer.push("</tr>");
-    }
-    htmlBuffer.push("</tbody>");
+        const rowDiv = document.createElement("div");
+        rowDiv.setAttribute("class", "board-row");
 
-    board.innerHTML = htmlBuffer.join("\n");
+        for (let j = 0; j < 5; j++) {
+            const cellDiv = document.createElement("div");
+            cellDiv.setAttribute("class", "board-letter");
+
+            rowDiv.appendChild(cellDiv);
+        }
+
+        board.appendChild(rowDiv);
+    }
 }
 
 function initializeKeyboard() {
