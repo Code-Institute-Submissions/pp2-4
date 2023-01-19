@@ -13,7 +13,7 @@
 [x] make game board and keyboard size responsive with viewport height
 
 [ ] add statistics/correct answer count
-[ ] add animations to letters when enter is pressed
+[x] add animations to letters when enter is pressed
 [ ] add daily puzzle option (just add a general random seed input and have a button to fill that in with today's date?)
 [x] make favicon
 [x] fix footer responsiveness
