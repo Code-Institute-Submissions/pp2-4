@@ -207,6 +207,7 @@ main {
 
 #game-board {
     flex-grow: 1;
+    margin: 10px;
 
     display: flex;
     flex-direction: column;
@@ -304,5 +305,22 @@ main {
 
     #menu i {
         font-size: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .board-letter {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    dialog {
+        padding: 2em;
+        line-height: 1.1em;
+    }
+
+    .dialog-letter {
+        width: 2rem;
+        height: 2rem;
     }
 }
