@@ -74,3 +74,11 @@ I only started using [Conventional Commit Messages](https://gist.github.com/qoom
 
 - When passing through JSHint, my JavaScript code produced one warning, reading as follows: `Functions declared within loops referencing an outer scoped variable may lead to confusing semantics.` I was unable to figure out how to remove this warning, but it doesn't cause any notable issues when running the code.
 - When the page is shorter than about 650 pixels, the keyboard starts to get cut off the screen. This could be improved by taking more care about responsiveness.
+
+## Deployment
+
+- The site was deployed to GitHub Pages. The steps to deploy are as follows:
+    - In the GitHub repository, navigate to the Settings tab
+    - In the Pages section, select the `main` branch and click "Save"
+    - Once this branch has been selected, the site will be deployed within a few minutes.
+
