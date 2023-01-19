@@ -225,7 +225,7 @@ function gameOver(gotAnswer) {
     if (gotAnswer)
         message = ["Well done!", "Congratulations!"][Math.floor(Math.random() * 2)];
     else
-        message = "Game over!";
+        message = answer.toUpperCase();
     
     showNotification(message);
 }
