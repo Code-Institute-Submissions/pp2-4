@@ -84,11 +84,11 @@ I tried to rename an older commit to follow this style, but it changed the times
 ### Validator testing
 
 - HTML
-    - No errors were returned when passing through the official [W3C validator]
+    - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Ftetraxile-ci.github.io%2Fpp2%2F)
 - CSS
-    - No errors were returned when passing through the official [(Jigsaw) validator]
+    - No errors were returned when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Ftetraxile-ci.github.io%2Fpp2%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 - JavaScript
-    - One warning was returned when passing through [JSHint]. This warning is mentioned below.
+    - One warning was returned when passing through [JSHint](https://jshint.com/). This warning is mentioned below.
 
 ### Unfixed bugs
 
