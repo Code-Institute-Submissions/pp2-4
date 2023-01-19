@@ -61,3 +61,16 @@ I ran into problems when I wanted the game to take up the rest of the screen spa
 
 I only started using [Conventional Commit Messages](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13) midway through the project. I tried to rename an older commit to follow this style, but it changed the timestamp of all commits up to that point, so I left the older commits alone.
 
+### Validator testing
+
+- HTML
+    - No errors were returned when passing through the official [W3C validator]
+- CSS
+    - No errors were returned when passing through the official [(Jigsaw) validator]
+- JavaScript
+    - One warning was returned when passing through [JSHint]. This warning is mentioned below.
+
+### Unfixed bugs
+
+- When passing through JSHint, my JavaScript code produced one warning, reading as follows: `Functions declared within loops referencing an outer scoped variable may lead to confusing semantics.` I was unable to figure out how to remove this warning, but it doesn't cause any notable issues when running the code.
+- When the page is shorter than about 650 pixels, the keyboard starts to get cut off the screen. This could be improved by taking more care about responsiveness.
