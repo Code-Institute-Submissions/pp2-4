@@ -35,9 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // add event listeners to onscreen keyboard keys
-    let keys = document.getElementsByClassName("keyboard-key");
+    const keys = document.getElementsByClassName("keyboard-key");
     for (let key of keys) {
-        key.addEventListener("click", () => handleKeyInput(key.dataset.key));
+        const letter = key.dataset.key;
+        key.addEventListener("click", () => handleKeyInput(letter));
     }
 });
 
@@ -121,13 +122,13 @@ function handleKeyInput(key) {
         makeGuess();
     }
     else if (key === "Backspace" && currentRowLetters > 0) {
-        let prevCell = getCell(guesses, currentRowLetters - 1);
+        const prevCell = getCell(guesses, currentRowLetters - 1);
         prevCell.innerHTML = "";
         currentRowLetters--;
     }
     // only allow letter keys, and only when the current row isn't full
     else if (/^[a-z]$/i.test(key) && currentRowLetters < 5) {
-        let cell = getCell(guesses, currentRowLetters);
+        const cell = getCell(guesses, currentRowLetters);
         cell.dataset.key = key.toLowerCase();
         cell.innerHTML = key.toLowerCase();
         cell.ariaLabel = key;
@@ -137,8 +138,8 @@ function handleKeyInput(key) {
 
 
 function getCell(row, column) {
-    let curRow = document.getElementsByClassName("board-row")[row];
-    let curCell = curRow.children[column];
+    const curRow = document.getElementsByClassName("board-row")[row];
+    const curCell = curRow.children[column];
     
     return curCell;
 }
@@ -169,7 +170,7 @@ function closeShownDialog() {
 
 
 function makeGuess() {
-    let curRow = document.getElementsByClassName("board-row")[guesses];
+    const curRow = document.getElementsByClassName("board-row")[guesses];
     let correctLetters = 0;
     
     let guess = "";
@@ -184,12 +185,12 @@ function makeGuess() {
 
     let answerCopy = answer.slice();
     for (let i = 0; i < guess.length; i++) {
-        let cell = curRow.children[i];
-        let letter = guess[i];
+        const cell = curRow.children[i];
+        const letter = guess[i];
         // https://stackoverflow.com/a/62872204/12317855
-        let keyboardKey = keyboard.querySelector(`[data-key="${letter}"]`);
+        const keyboardKey = keyboard.querySelector(`[data-key="${letter}"]`);
         
-        let answerIndex = answerCopy.indexOf(letter);
+        const answerIndex = answerCopy.indexOf(letter);
 
         // guessed letter wasn't found in answer
         if (answerIndex === -1) {
@@ -219,7 +220,7 @@ function makeGuess() {
     guesses++;
     currentRowLetters = 0;
 
-    let gotAnswer = correctLetters === 5;
+    const gotAnswer = correctLetters === 5;
     if (guesses === 6 || gotAnswer) gameOver(gotAnswer);
 }
 
@@ -238,7 +239,7 @@ function gameOver(gotAnswer) {
 
 
 function generateAnswer() {
-    let answerIndex = Math.floor(Math.random() * answerWords.length);
+    const answerIndex = Math.floor(Math.random() * answerWords.length);
     return answerWords[answerIndex];
 }
 
