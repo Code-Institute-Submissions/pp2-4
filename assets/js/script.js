@@ -54,6 +54,7 @@ function initializeTable() {
         for (let j = 0; j < 5; j++) {
             const cellDiv = document.createElement("div");
             cellDiv.setAttribute("class", "board-letter");
+            cellDiv.setAttribute("role", "cell");
 
             rowDiv.appendChild(cellDiv);
         }
