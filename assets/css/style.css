@@ -278,16 +278,19 @@ main {
 .incorrect-letter {
     background-color: #444;
     border: none;
+    transition: all 0.25s linear;
 }
 
 .present-letter {
     background-color: rgb(198, 198, 17);
     border: none;
+    transition: all 0.25s linear;
 }
 
 .correct-letter {
     background: rgb(83, 149, 78);
     border: none;
+    transition: all 0.25s linear;
 }
 
 

@@ -174,6 +174,7 @@ function closeShownDialog() {
 function makeGuess() {
     const curRow = document.getElementsByClassName("board-row")[guesses];
     let correctLetters = 0;
+    const fadeInDelay = 300;
     
     let guess = "";
     for (let cell of curRow.children) {
@@ -196,19 +197,19 @@ function makeGuess() {
 
         // guessed letter wasn't found in answer
         if (answerIndex === -1) {
-            cell.classList.add("incorrect-letter");
+            setTimeout(() => cell.classList.add("incorrect-letter"), fadeInDelay * i);
             keyboardKey.classList.add("incorrect-letter");
             continue;
         }
         // guessed letter is in the correct position
         else if (letter === answer[i]) {
             correctLetters++;
-            cell.classList.add("correct-letter");
+            setTimeout(() => cell.classList.add("correct-letter"), fadeInDelay * i);
             keyboardKey.classList.add("correct-letter");
         }
         // guessed letter is present in the answer, but in the wrong position
         else {
-            cell.classList.add("present-letter");
+            setTimeout(() => cell.classList.add("present-letter"), fadeInDelay * i);
             keyboardKey.classList.add("present-letter");
         }
 
@@ -236,7 +237,7 @@ function gameOver(gotAnswer) {
     else
         message = answer.toUpperCase();
     
-    showNotification(message);
+    setTimeout(() => showNotification(message), 1500);
 }
 
 
