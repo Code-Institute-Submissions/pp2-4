@@ -7,12 +7,10 @@ let guesses = 0;
 let currentRowLetters = 0;
 let isGameOver = false;
 let keyboard;
-let notifications;
 let answer = generateAnswer();
 
 document.addEventListener("DOMContentLoaded", function() {
     keyboard = document.getElementById("keyboard");
-    notifications = document.getElementById("notification-container");
     
     initializeTable();
     initializeKeyboard();
@@ -128,6 +126,7 @@ function getCell(row, column) {
 
 
 function showNotification(text) {
+    const notifications = document.getElementById("notification-container");
     const notificationDiv = document.createElement("p");
     notificationDiv.setAttribute("class", "notification");
     notificationDiv.textContent = text;
