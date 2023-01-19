@@ -280,6 +280,7 @@ main {
 
 /* media queries */
 
+/* move site logo to the left */
 @media screen and (min-width: 30rem) {
     header {
         grid-template-columns: 1fr auto 1fr;
@@ -293,5 +294,15 @@ main {
 @media screen and (max-width: 720px) {
     footer {
         display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #site-logo {
+        font-size: 2rem;
+    }
+
+    #menu i {
+        font-size: 1.25rem;
     }
 }
