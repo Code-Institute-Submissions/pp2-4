@@ -98,6 +98,103 @@ footer {
 }
 
 
+
+/* dialogs */
+
+dialog {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30em;
+    padding: 3em;
+    background-color: #333;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 25%);
+}
+
+dialog h2 {
+    margin-bottom: 0.5em;
+}
+
+dialog p {
+    font-family: "Source Sans Pro", sans-serif;
+    margin-bottom: 0.25em;
+}
+
+.close-dialog {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    height: 30px;
+    width: 30px;
+
+    font-size: 40px;
+    color: white;
+    background: none;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dialog-row {
+    display: flex;
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 5px;
+    justify-content: center;
+}
+
+.dialog-letter {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 3rem;
+    height: 3rem;
+    padding: 0.2rem;
+    border: 2px solid #666;
+
+    font-family: Poppins, sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+
+/* notifications */
+
+#notification-container {
+    position: absolute;
+    top: 70px;
+
+    /* https://stackoverflow.com/a/8273750/12317855 */
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10rem;
+
+    text-align: center;
+}
+
+.notification {
+    font-family: Poppins, sans-serif;
+    background-color: white;
+    color: black;
+
+    margin-bottom: 0.75em;
+    padding: 0.75em 0.5em;
+    border-radius: 5px;
+}
+
+
+
 /* game area */
 
 main {
@@ -173,34 +270,6 @@ main {
 .correct-letter {
     background: rgb(83, 149, 78);
     border: none;
-}
-
-
-
-/* notifications */
-
-#notification-container {
-    position: absolute;
-    top: 70px;
-
-    /* https://stackoverflow.com/a/8273750/12317855 */
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 10rem;
-
-    text-align: center;
-}
-
-.notification {
-    font-family: Poppins, sans-serif;
-    background-color: white;
-    color: black;
-
-    margin-bottom: 0.75em;
-    padding: 0.75em 0.5em;
-    border-radius: 5px;
 }
 
 

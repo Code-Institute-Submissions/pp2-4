@@ -1,6 +1,6 @@
 [x] allow letters to be entered without focusing on game board
 [x] add footer
-[ ] add information window to info button (modal dialog)
+[x] add information window to info button (modal dialog)
 [-] implement the actual game
     [x] make game board letters change color
     [x] add keyboard with colors
@@ -16,6 +16,7 @@
 [ ] add animations to letters when enter is pressed
 [ ] add daily puzzle option (just add a general random seed input and have a button to fill that in with today's date?)
 [x] make favicon
+[ ] fix footer responsiveness
 
 [ ] add settings
     [ ] add colorblind color scheme

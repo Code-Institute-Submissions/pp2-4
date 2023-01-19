@@ -8,6 +8,7 @@ let currentRowLetters = 0;
 let isGameOver = false;
 let keyboard;
 let answer = generateAnswer();
+let openDialog = null;
 
 document.addEventListener("DOMContentLoaded", () => {
     keyboard = document.getElementById("keyboard");
@@ -18,6 +19,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keydown", (event) => {
         if (!event.repeat) handleKeyInput(event.key);
     });
+    
+
+    // add event listeners to dialogs
+    const infoDialog = document.getElementById("info-dialog");
+    const infoButton = document.getElementById("info-button");
+    infoButton.addEventListener("click", () => showDialog(infoDialog));
+
+
+    // add event listeners to dialog close buttons
+    const closeButtons = document.getElementsByClassName("close-dialog");
+    for (let button of closeButtons) {
+        button.addEventListener("click", closeShownDialog);
+    }
+
 
     // add event listeners to onscreen keyboard keys
     let keys = document.getElementsByClassName("keyboard-key");
@@ -87,7 +102,7 @@ function initializeBackspaceKey() {
     backspaceKey.setAttribute("id", "key-backspace");
     backspaceKey.setAttribute("data-key", "Backspace");
     backspaceKey.innerHTML = "<i class='fa-solid fa-delete-left'></i>";
-
+    
     const lastRow = keyboard.children[2];
     lastRow.appendChild(backspaceKey);
 }
@@ -95,7 +110,7 @@ function initializeBackspaceKey() {
 
 function handleKeyInput(key) {
     if (isGameOver) return;
-
+    
     // a guess is only allowed if a 5 letter word is entered
     if (key === "Enter" && currentRowLetters == 5) {
         makeGuess();
@@ -118,7 +133,7 @@ function handleKeyInput(key) {
 function getCell(row, column) {
     let curRow = document.getElementsByClassName("board-row")[row];
     let curCell = curRow.children[column];
-
+    
     return curCell;
 }
 
@@ -135,10 +150,22 @@ function showNotification(text) {
 }
 
 
+function showDialog(dialog) {
+    dialog.showModal();
+    openDialog = dialog;
+}
+
+
+function closeShownDialog() {
+    openDialog.close();
+    openDialog = null;
+}
+
+
 function makeGuess() {
     let curRow = document.getElementsByClassName("board-row")[guesses];
     let correctLetters = 0;
-
+    
     let guess = "";
     for (let cell of curRow.children) {
         guess += cell.dataset.key;

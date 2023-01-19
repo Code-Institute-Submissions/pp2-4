@@ -14,12 +14,46 @@
 </head>
 <body>
     <div id="site-container">
+        <dialog id="info-dialog">
+            <button class="close-dialog">&times;</button>
+            <h2>How to play</h2>
+            <p>Try to guess the word in 6 guesses!</p>
+            <p>The letters in your guesses will change color based on how close to the answer you are. For example:</p>
+
+            <div class="dialog-row">
+                <div class="dialog-letter correct-letter">c</div>
+                <div class="dialog-letter">a</div>
+                <div class="dialog-letter">r</div>
+                <div class="dialog-letter">g</div>
+                <div class="dialog-letter">o</div>
+            </div>
+            <p>The letter C is in the correct position.</p>
+
+            <div class="dialog-row">
+                <div class="dialog-letter">a</div>
+                <div class="dialog-letter present-letter">r</div>
+                <div class="dialog-letter">r</div>
+                <div class="dialog-letter">a</div>
+                <div class="dialog-letter">y</div>
+            </div>
+            <p>The letter R is in the word but in the wrong position.</p>
+
+            <div class="dialog-row">
+                <div class="dialog-letter">r</div>
+                <div class="dialog-letter">u</div>
+                <div class="dialog-letter">s</div>
+                <div class="dialog-letter">t</div>
+                <div class="dialog-letter incorrect-letter">y</div>
+            </div>
+            <p>The letter Y is not in the word in any position.</p>
+        </dialog>
+
         <div id="notification-container"></div>
 
         <header>
             <h1 id="site-logo">Wordle</h1>
             <div id="menu">
-                <button><i class="fa-solid fa-circle-info"></i></button>
+                <button id="info-button"><i class="fa-solid fa-circle-info"></i></button>
             </div>
         </header>
 
