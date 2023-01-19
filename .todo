@@ -28,26 +28,3 @@ if i have time:
 [x] look into aria stuff for buttons maybe
 [x] refactor onscreen keyboard initialization?
 
-
-for readme:
-
-was going to use just `<li>` for the info button, but used `<button>` for accessibility reasons (the ability to tab to the button)
-
-for the onscreen keyboard, i was using each key's `innerHTML` to determine what to do to the game board,
-but for backspace innerHTML is a fontawesome icon, so it doesn't work properly.
-then i found this article that seemed to fit my use case better:
-https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
-
-my first implementation of the algorithm to determine the color of each letter was incorrect;
-if the answer was "TREAD" and i guessed "TREAT", the second "T" would turn yellow when it should be gray.
-i sketched on some paper to figure out a way to solve this problem, and with the help of
-a stackoverflow post (https://stackoverflow.com/a/20817684/12317855), i was able to fix it.
-
-i originally made the game board using a html `<table>` element, but it behaved oddly when resizing the window.
-i found that changing from this to instead using `display: flex` improved responsiveness.
-
-i ran into problems when i wanted the game to take up the rest of the screen space after the header. i searched
-for help and i found this (https://stackoverflow.com/a/24979148/12317855)
-
-i only started using conventional commit messages midway through the project. i tried to rename an older
-commit to follow this style, but it changed the timestamp of all commits up to that point.
