@@ -38,3 +38,10 @@ The site is targeted towards those who are interested in puzzle games, and who w
 
 ![Footer](media/footer.png)
 
+### Features left to implement
+
+- Allow the user to play multiple times, keeping track of their score
+- Make the random answer specific to the current day, so everyone can play the same puzzle
+- Add more animations to the page, like when revealing the color of the letters, or when opening modal windows
+- Settings window, containing options to turn on playing multiple times, adding a hard mode, or a colorblind color scheme
+
