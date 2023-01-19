@@ -131,6 +131,7 @@ function showNotification(text) {
     const notifications = document.getElementById("notification-container");
     const notificationDiv = document.createElement("p");
     notificationDiv.setAttribute("class", "notification");
+    notificationDiv.setAttribute("role", "alert");
     notificationDiv.textContent = text;
 
     notifications.insertBefore(notificationDiv, notifications.firstChild);
@@ -143,12 +144,14 @@ function showNotification(text) {
 
 function showDialog(dialog) {
     dialog.showModal();
+    dialog.ariaHidden = "false";
     openDialog = dialog;
 }
 
 
 function closeShownDialog() {
     openDialog.close();
+    openDialog.ariaHidden = "true";
     openDialog = null;
 }
 
