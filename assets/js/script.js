@@ -48,6 +48,7 @@ function initializeTable() {
     for (let i = 0; i < 6; i++) {
         const rowDiv = document.createElement("div");
         rowDiv.setAttribute("class", "board-row");
+        rowDiv.setAttribute("aria-label", `Row ${i+1}`);
 
         for (let j = 0; j < 5; j++) {
             const cellDiv = document.createElement("div");
@@ -89,6 +90,7 @@ function initializeEnterKey() {
     enterKey.setAttribute("class", "keyboard-key");
     enterKey.setAttribute("id", "key-enter");
     enterKey.setAttribute("data-key", "Enter");
+    enterKey.setAttribute("aria-label", "Enter key");
     enterKey.textContent = "Enter";
 
     const lastRow = keyboard.children[2];
@@ -101,6 +103,7 @@ function initializeBackspaceKey() {
     backspaceKey.setAttribute("class", "keyboard-key");
     backspaceKey.setAttribute("id", "key-backspace");
     backspaceKey.setAttribute("data-key", "Backspace");
+    backspaceKey.setAttribute("aria-label", "Backspace key");
     backspaceKey.innerHTML = "<i class='fa-solid fa-delete-left'></i>";
     
     const lastRow = keyboard.children[2];
@@ -125,6 +128,7 @@ function handleKeyInput(key) {
         let cell = getCell(guesses, currentRowLetters);
         cell.dataset.key = key.toLowerCase();
         cell.innerHTML = key.toLowerCase();
+        cell.ariaLabel = key;
         currentRowLetters++;
     }
 }
