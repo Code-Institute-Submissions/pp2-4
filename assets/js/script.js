@@ -3,12 +3,19 @@
 import {allowedWords, answerWords} from './words.js';
 
 
+
+/*========== GLOBALS ==========*/
+
 let guesses = 0;
 let currentRowLetters = 0;
 let isGameOver = false;
 let keyboard;
 let answer = generateAnswer();
 let openDialog = null;
+
+
+
+/*========== AFTER DOM IS LOADED ==========*/
 
 document.addEventListener("DOMContentLoaded", () => {
     keyboard = document.getElementById("keyboard");
@@ -42,6 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+
+
+/*========== INITIALIZERS ==========*/
 
 function initializeTable() {
     const board = document.getElementById("game-board");
@@ -114,36 +124,8 @@ function initializeBackspaceKey() {
 }
 
 
-function handleKeyInput(key) {
-    if (isGameOver) return;
-    
-    // a guess is only allowed if a 5 letter word is entered
-    if (key === "Enter" && currentRowLetters == 5) {
-        makeGuess();
-    }
-    else if (key === "Backspace" && currentRowLetters > 0) {
-        const prevCell = getCell(guesses, currentRowLetters - 1);
-        prevCell.innerHTML = "";
-        currentRowLetters--;
-    }
-    // only allow letter keys, and only when the current row isn't full
-    else if (/^[a-z]$/i.test(key) && currentRowLetters < 5) {
-        const cell = getCell(guesses, currentRowLetters);
-        cell.dataset.key = key.toLowerCase();
-        cell.innerHTML = key.toLowerCase();
-        cell.ariaLabel = key;
-        currentRowLetters++;
-    }
-}
 
-
-function getCell(row, column) {
-    const curRow = document.getElementsByClassName("board-row")[row];
-    const curCell = curRow.children[column];
-    
-    return curCell;
-}
-
+/*========== VISUALS ==========*/
 
 function showNotification(text) {
     const notifications = document.getElementById("notification-container");
@@ -170,6 +152,35 @@ function closeShownDialog() {
     openDialog = null;
 }
 
+
+
+/*========== INPUT HANDLING ==========*/
+
+function handleKeyInput(key) {
+    if (isGameOver) return;
+    
+    // a guess is only allowed if a 5 letter word is entered
+    if (key === "Enter" && currentRowLetters == 5) {
+        makeGuess();
+    }
+    else if (key === "Backspace" && currentRowLetters > 0) {
+        const prevCell = getCell(guesses, currentRowLetters - 1);
+        prevCell.innerHTML = "";
+        currentRowLetters--;
+    }
+    // only allow letter keys, and only when the current row isn't full
+    else if (/^[a-z]$/i.test(key) && currentRowLetters < 5) {
+        const cell = getCell(guesses, currentRowLetters);
+        cell.dataset.key = key.toLowerCase();
+        cell.innerHTML = key.toLowerCase();
+        cell.ariaLabel = key;
+        currentRowLetters++;
+    }
+}
+
+
+
+/*========== CORE GAMEPLAY ==========*/
 
 function makeGuess() {
     const curRow = document.getElementsByClassName("board-row")[guesses];
@@ -241,8 +252,18 @@ function gameOver(gotAnswer) {
 }
 
 
+
+/*========== UTILITY FUNCTIONS ==========*/
+
+function getCell(row, column) {
+    const curRow = document.getElementsByClassName("board-row")[row];
+    const curCell = curRow.children[column];
+    
+    return curCell;
+}
+
+
 function generateAnswer() {
     const answerIndex = Math.floor(Math.random() * answerWords.length);
     return answerWords[answerIndex];
 }
-
