@@ -10,7 +10,7 @@
     [ ] add game over visuals
 
 [ ] don't input letter if ctrl is held
-[ ] make game board and keyboard size responsive with viewport height
+[x] make game board and keyboard size responsive with viewport height
 
 [ ] add statistics/correct answer count
 [ ] add animations to letters when enter is pressed
@@ -23,7 +23,7 @@
     [ ] add light mode/dark mode toggle
 
 if i have time:
-[ ] explore other ways to make the header grid responsive other than media queries
+[x] explore other ways to make the header grid responsive other than media queries
 [ ] look into aria stuff for buttons maybe
 [x] refactor onscreen keyboard initialization?
 
