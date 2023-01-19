@@ -121,6 +121,12 @@ dialog h2 {
     margin-bottom: 0.5em;
 }
 
+dialog hr {
+    border-bottom: 1px solid white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 dialog p {
     font-family: "Source Sans Pro", sans-serif;
     margin-bottom: 0.25em;
