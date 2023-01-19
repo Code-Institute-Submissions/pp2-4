@@ -235,6 +235,10 @@ main {
     text-transform: uppercase;
 }
 
+#keyboard {
+    margin: 5px;
+}
+
 .keyboard-row {
     display: flex;
     gap: 5px;
