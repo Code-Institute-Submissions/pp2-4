@@ -9,22 +9,20 @@ let isGameOver = false;
 let keyboard;
 let answer = generateAnswer();
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
     keyboard = document.getElementById("keyboard");
     
     initializeTable();
     initializeKeyboard();
 
-    document.addEventListener("keydown", function(event) {
+    document.addEventListener("keydown", (event) => {
         if (!event.repeat) handleKeyInput(event.key);
     });
 
     // add event listeners to onscreen keyboard keys
     let keys = document.getElementsByClassName("keyboard-key");
     for (let key of keys) {
-        key.addEventListener("click", function() {
-            handleKeyInput(this.dataset.key);
-        });
+        key.addEventListener("click", () => handleKeyInput(key.dataset.key));
     }
 });
 
