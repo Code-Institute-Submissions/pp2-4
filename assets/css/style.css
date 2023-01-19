@@ -201,9 +201,8 @@ dialog p {
 
 /* https://stackoverflow.com/a/20910008/12317855 */
 .hidden {
-    visibility: hidden;
     opacity: 0;
-    transition: visibility 0s 0.5s, opacity 0.5s linear;
+    transition: opacity 0.5s linear;
 }
 
 
