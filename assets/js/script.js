@@ -11,11 +11,11 @@ let notifications;
 let answer = generateAnswer();
 
 document.addEventListener("DOMContentLoaded", function() {
-    initializeTable();
-    initializeKeyboard();
-
     keyboard = document.getElementById("keyboard");
     notifications = document.getElementById("notification-container");
+    
+    initializeTable();
+    initializeKeyboard();
 
     document.addEventListener("keydown", function(event) {
         if (!event.repeat) handleKeyInput(event.key);
@@ -50,7 +50,6 @@ function initializeTable() {
 }
 
 function initializeKeyboard() {
-    const keyboard = document.getElementById("keyboard");
     const letterRows = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
 
     for (let letterRow of letterRows) {
@@ -69,12 +68,24 @@ function initializeKeyboard() {
         keyboard.appendChild(rowDiv);
     }
 
+    initializeEnterKey();
+    initializeBackspaceKey();
+}
+
+
+function initializeEnterKey() {
     const enterKey = document.createElement("button");
     enterKey.setAttribute("class", "keyboard-key");
     enterKey.setAttribute("id", "key-enter");
     enterKey.setAttribute("data-key", "Enter");
     enterKey.textContent = "Enter";
 
+    const lastRow = keyboard.children[2];
+    lastRow.insertBefore(enterKey, lastRow.firstChild);
+}
+
+
+function initializeBackspaceKey() {
     const backspaceKey = document.createElement("button");
     backspaceKey.setAttribute("class", "keyboard-key");
     backspaceKey.setAttribute("id", "key-backspace");
@@ -82,7 +93,6 @@ function initializeKeyboard() {
     backspaceKey.innerHTML = "<i class='fa-solid fa-delete-left'></i>";
 
     const lastRow = keyboard.children[2];
-    lastRow.insertBefore(enterKey, lastRow.firstChild);
     lastRow.appendChild(backspaceKey);
 }
 
